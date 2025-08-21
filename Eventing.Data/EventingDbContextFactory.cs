@@ -6,7 +6,9 @@ namespace Eventing.Data;
 public sealed class EventingDbContextFactory : IDesignTimeDbContextFactory<EventingDbContext>
 {
     // Only used for EF Core migrations in .NET Aspire.
-    private const string ConnectionString = "Host=localhost;Port=5432;Database=eventingdb;Username=eventinguser;Password=eventing123";
+    // You can temporarily set a valid connection string here 
+    // when running `dotnet ef database update` outside of Aspire.
+    private const string ConnectionString = "Host=localhost;Port=58924;Username=postgres;Password=7RqQ}4dNDhgKnX(QMrR7Wk;Database=eventing-db\n\n";
     
     public EventingDbContext CreateDbContext(string[] args)
     {

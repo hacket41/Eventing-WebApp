@@ -19,9 +19,4 @@
         <AdditionalFiles Include="Components\Layout\ParentLayout.razor"/>
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="Components\Features\Register\Dtos\" />
-      <Folder Include="Components\Features\Register\Models\" />
-    </ItemGroup>
-
 </Project>

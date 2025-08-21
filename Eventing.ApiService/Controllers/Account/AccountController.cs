@@ -48,12 +48,6 @@ public class AccountController(
                     detail: "Login temporarily blocked due to failed attempts.",
                     statusCode: StatusCodes.Status423Locked);
 
-            case { IsNotAllowed: true }:
-                return Problem(
-                    title: "Login not allowed",
-                    detail: "Please confirm your account before login.",
-                    statusCode: StatusCodes.Status403Forbidden);
-
             case { RequiresTwoFactor: true }:
                 return Problem(
                     title: "Two-factor required",

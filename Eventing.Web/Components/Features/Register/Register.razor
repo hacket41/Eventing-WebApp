@@ -1,0 +1,74 @@
+@page "/register"
+@using Eventing.Web.Components.Features.Register.Models
+@using Eventing.Web.Components.Features.Register.Dtos
+
+
+<PageTitle>Register</PageTitle>
+
+<FluentStack HorizontalAlignment="HorizontalAlignment.Center"
+             VerticalAlignment="VerticalAlignment.Center"
+             Style="height:100vh; background-color:#1e1e2f; padding:1rem;">
+
+    <FluentCard Style="width:800px; max-width:95%; height:600px; display:flex; box-shadow:0 10px 30px rgba(0,0,0,0.6); border-radius:20px; overflow:hidden; background-color:#2a2a3d;">
+
+        <!-- LEFT SIDE -->
+        <FluentStack Style="flex:0.8; background-color:#3a3a4d; padding:2rem; justify-content:space-between; text-align:center; display:flex; flex-direction:column;">
+            <h1 style="color:#fff; font-size:2rem; margin-top:150px; font-weight:600;">Join Us!</h1>
+            <p style="color:#ccc; font-size:1rem; line-height:1.5; margin-bottom:200px;">
+                Create your account and start scheduling as you wish.
+            </p>
+        </FluentStack>
+
+        <!-- RIGHT SIDE -->
+        <FluentStack Style="flex:1.2; padding:2rem; justify-content:center; border-radius:10px;">
+            <FluentEditForm Model="RegisterModel" OnValidSubmit="SubmitAsync" FormName="RegisterForm">
+                <DataAnnotationsValidator />
+                <ValidationSummary />
+
+                <FluentStack Orientation="Orientation.Vertical" Gap="14px" Style="width:100%; max-width:360px; margin:auto; margin-top:20px">
+                    <FluentTextField Name="FullName" @bind-Value="RegisterModel.FullName" Label="Full Name" Placeholder="Enter your full name" Required="true" Style="width:100%; height:50px; font-size:1rem; border-radius:22px;">
+                        <FluentIcon Value="@(new Icons.Regular.Size16.Person())" Slot="start" Color="Color.Neutral" />
+                    </FluentTextField>
+                    <FluentValidationMessage For="@(() => RegisterModel.FullName)" />
+
+                    <FluentTextField Name="Email" @bind-Value="RegisterModel.Email" Label="Email" Placeholder="Enter your email" Required="true" Style="width:100%; height:50px; font-size:1rem; border-radius:22px;">
+                        <FluentIcon Value="@(new Icons.Regular.Size16.Mail())" Slot="start" Color="Color.Neutral" />
+                    </FluentTextField>
+                    <FluentValidationMessage For="@(() => RegisterModel.Email)" />
+
+                    <FluentTextField Name="Password" @bind-Value="RegisterModel.Password" Label="Password" Placeholder="Enter a password" TextFieldType="TextFieldType.Password" Required="true" Style="width:100%; height:50px; font-size:1rem; border-radius:22px;">
+                        <FluentIcon Value="@(new Icons.Regular.Size16.Password())" Slot="start" Color="Color.Neutral" />
+                    </FluentTextField>
+                    <FluentValidationMessage For="@(() => RegisterModel.Password)" />
+
+                    <FluentTextField Name="ConfirmPassword" @bind-Value="RegisterModel.ConfirmPassword" Label="Confirm Password" Placeholder="Confirm your password" TextFieldType="TextFieldType.Password" Required="true" Style="width:100%; height:50px; font-size:1rem; border-radius:22px;">
+                        <FluentIcon Value="@(new Icons.Regular.Size16.Password())" Slot="start" Color="Color.Neutral" />
+                    </FluentTextField>
+                    <FluentValidationMessage For="@(() => RegisterModel.ConfirmPassword)" />
+
+                    <FluentCheckbox @bind-Value="@RegisterModel.AgreeTerms" Style="color:#ccc;">
+                        I agree to the terms and conditions
+                    </FluentCheckbox>
+
+                    <FluentButton Appearance="Appearance.Accent" Type="ButtonType.Submit"
+                                  Style="width:100%; height:50px; font-size:1rem; border-radius:12px;">
+                        Register
+                    </FluentButton>
+
+                    @if (!string.IsNullOrEmpty(ErrorMessage))
+                    {
+                        <div style="color: #ff4d4f; font-size:0.9rem; margin-top:0.5rem; text-align:center;">
+                            @ErrorMessage
+                        </div>
+                    }
+
+
+                    <FluentStack HorizontalAlignment="HorizontalAlignment.Center" Style="margin-top:0.5rem;">
+                        <span style="color:#aaa; font-size:0.9rem;">Already have an account?</span>
+                        <a href="/login" style="margin-left:0.25rem; color:#00bfff; font-size:0.9rem;">Sign In</a>
+                    </FluentStack>
+                </FluentStack>
+            </FluentEditForm>
+        </FluentStack>
+    </FluentCard>
+</FluentStack>

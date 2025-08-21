@@ -50,11 +50,20 @@
                     </FluentButton>
 
                     <!-- Sign up link below inputs -->
+                    <!-- Sign up link below inputs -->
                     <FluentStack HorizontalAlignment="HorizontalAlignment.Center" Style="margin-top:0.5rem;">
                         <span style="color:#aaa; font-size:0.9rem;">Don't have an account?</span>
-                        <a href="/register" style="margin-left:0.25rem; color:#00bfff; font-size:0.9rem;">Sign Up</a>
+                        <FluentButton Appearance="Appearance.Stealth"
+                                      Style="margin-left:0.25rem; font-size:0.9rem; color:#00bfff;"
+                                      @onclick="@(() => NavManager.NavigateTo("/register"))">
+                            Sign Up
+                        </FluentButton>
                     </FluentStack>
 
+                    @code {
+                        [Inject]
+                        private NavigationManager NavManager { get; set; } = null!;
+                    }
                 </FluentStack>
             </FluentEditForm>
 
