@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <IncludeOpenAPIAnalyzers>true</IncludeOpenAPIAnalyzers>
+        <OpenApiDocumentsDirectory>./</OpenApiDocumentsDirectory>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Eventing.Data\Eventing.Data.csproj" />
+        <ProjectReference Include="..\Eventing.ServiceDefaults\Eventing.ServiceDefaults.csproj"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Aspire.StackExchange.Redis.DistributedCaching"/>
+        <PackageReference Include="FluentEmail.Smtp"/>
+        <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer"/>
+        <PackageReference Include="Microsoft.AspNetCore.OpenApi"/>
+        <PackageReference Include="Scalar.AspNetCore"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <Folder Include="Controllers\Attendee\Dto\"/>
+        <Folder Include="Data\" />
+    </ItemGroup>
+
+</Project>

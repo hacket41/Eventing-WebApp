@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <Sdk Name="Aspire.AppHost.Sdk" Version="9.4.0"/>
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <UserSecretsId>90db335a-c356-4c39-8da5-2e2187d223d3</UserSecretsId>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Eventing.ApiService\Eventing.ApiService.csproj"/>
+        <ProjectReference Include="..\Eventing.Data.Migrator\Eventing.Data.Migrator.csproj" />
+        <ProjectReference Include="..\Eventing.Web\Eventing.Web.csproj"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Aspire.Hosting.AppHost"/>
+        <PackageReference Include="Aspire.Hosting.PostgreSQL"/>
+        <PackageReference Include="Aspire.Hosting.Redis"/>
+        <PackageReference Include="CommunityToolkit.Aspire.Hosting.MailPit"/>
+    </ItemGroup>
+
+</Project>
